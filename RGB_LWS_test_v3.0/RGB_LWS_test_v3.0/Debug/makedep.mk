@@ -2,13 +2,7 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-EEPROM.c
+light_ws2812.c
 
 main.c
-
-PWM.c
-
-USART.c
-
-WS2812b.c
 

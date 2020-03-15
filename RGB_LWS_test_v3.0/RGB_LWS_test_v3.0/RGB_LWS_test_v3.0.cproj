@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>RGB_LED_test_v2.0</AssemblyName>
-    <Name>RGB_LED_test_v2.0</Name>
-    <RootNamespace>RGB_LED_test_v2.0</RootNamespace>
+    <AssemblyName>RGB_LWS_test_v3.0</AssemblyName>
+    <Name>RGB_LWS_test_v3.0</Name>
+    <RootNamespace>RGB_LWS_test_v3.0</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
@@ -28,18 +28,6 @@
     <ResetRule>0</ResetRule>
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <EraseKey />
-    <AsfFrameworkConfig>
-      <framework-data xmlns="">
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.40.0" />
-  </dependencies>
-</framework-data>
-    </AsfFrameworkConfig>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -120,34 +108,16 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="EEPROM.c">
+    <Compile Include="light_ws2812.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="EEPROM.h">
+    <Compile Include="light_ws2812.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="PWM.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="PWM.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="USART.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="USART.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="WS2812b.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="WS2812b.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
