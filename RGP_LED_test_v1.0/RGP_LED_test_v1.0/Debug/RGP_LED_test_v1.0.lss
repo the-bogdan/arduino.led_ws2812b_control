@@ -1,0 +1,597 @@
+
+RGP_LED_test_v1.0.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  0000031c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000002a8  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000038e  00800100  00800100  0000031c  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000031c  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000034c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000038  00000000  00000000  0000038c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000007f4  00000000  00000000  000003c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000006da  00000000  00000000  00000bb8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000003b0  00000000  00000000  00001292  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000088  00000000  00000000  00001644  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003e0  00000000  00000000  000016cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000151  00000000  00000000  00001aac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000028  00000000  00000000  00001bfd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3b 00 	jmp	0x76	; 0x76 <__ctors_end>
+   4:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+   8:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+   c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  10:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  14:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  18:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  1c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  20:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  24:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  28:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  2c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  30:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  34:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  38:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  3c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  40:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  44:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  48:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  4c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  50:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  54:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  58:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  5c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  60:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  64:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  68:	e8 00       	.word	0x00e8	; ????
+  6a:	f4 00       	.word	0x00f4	; ????
+  6c:	ff 00       	.word	0x00ff	; ????
+  6e:	0a 01       	movw	r0, r20
+  70:	15 01       	movw	r2, r10
+  72:	1c 01       	movw	r2, r24
+  74:	23 01       	movw	r4, r6
+
+00000076 <__ctors_end>:
+  76:	11 24       	eor	r1, r1
+  78:	1f be       	out	0x3f, r1	; 63
+  7a:	cf ef       	ldi	r28, 0xFF	; 255
+  7c:	d8 e0       	ldi	r29, 0x08	; 8
+  7e:	de bf       	out	0x3e, r29	; 62
+  80:	cd bf       	out	0x3d, r28	; 61
+
+00000082 <__do_clear_bss>:
+  82:	24 e0       	ldi	r18, 0x04	; 4
+  84:	a0 e0       	ldi	r26, 0x00	; 0
+  86:	b1 e0       	ldi	r27, 0x01	; 1
+  88:	01 c0       	rjmp	.+2      	; 0x8c <.do_clear_bss_start>
+
+0000008a <.do_clear_bss_loop>:
+  8a:	1d 92       	st	X+, r1
+
+0000008c <.do_clear_bss_start>:
+  8c:	ae 38       	cpi	r26, 0x8E	; 142
+  8e:	b2 07       	cpc	r27, r18
+  90:	e1 f7       	brne	.-8      	; 0x8a <.do_clear_bss_loop>
+
+00000092 <__do_copy_data>:
+  92:	11 e0       	ldi	r17, 0x01	; 1
+  94:	a0 e0       	ldi	r26, 0x00	; 0
+  96:	b1 e0       	ldi	r27, 0x01	; 1
+  98:	e8 ea       	ldi	r30, 0xA8	; 168
+  9a:	f2 e0       	ldi	r31, 0x02	; 2
+  9c:	02 c0       	rjmp	.+4      	; 0xa2 <__do_copy_data+0x10>
+  9e:	05 90       	lpm	r0, Z+
+  a0:	0d 92       	st	X+, r0
+  a2:	a0 30       	cpi	r26, 0x00	; 0
+  a4:	b1 07       	cpc	r27, r17
+  a6:	d9 f7       	brne	.-10     	; 0x9e <__do_copy_data+0xc>
+  a8:	0e 94 b2 00 	call	0x164	; 0x164 <main>
+  ac:	0c 94 52 01 	jmp	0x2a4	; 0x2a4 <_exit>
+
+000000b0 <__bad_interrupt>:
+  b0:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000b4 <Set0>:
+unsigned char color1 = 0;
+unsigned char color = 0;
+//===================================================================================================================
+void Set0(void) // Выставляем в линию ноль ~0.4 мкс
+{
+	SetBitLED;
+  b4:	40 9a       	sbi	0x08, 0	; 8
+	...
+	asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");
+  be:	00 00       	nop
+	ClearBitLED; //После этого временной интервал немного увеличен, в связи с выполнением циклов,
+  c0:	40 98       	cbi	0x08, 0	; 8
+  c2:	08 95       	ret
+
+000000c4 <Set1>:
+	             //но диоды сигнал ловят исправно
+}
+//===================================================================================================================
+void Set1(void) // Выставляем в линию единицу ~0.85 мкс
+{
+	SetBitLED;
+  c4:	40 9a       	sbi	0x08, 0	; 8
+	...
+	asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");
+	asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");asm("nop");
+  da:	00 00       	nop
+	ClearBitLED; //После этого временной интервал немного увеличен, в связи с выполнением циклов,
+  dc:	40 98       	cbi	0x08, 0	; 8
+  de:	08 95       	ret
+
+000000e0 <setArray>:
+	//но диоды сигнал ловят исправно
+}
+//===================================================================================================================
+void setArray(void) // Выставление всего массива в линию
+{
+  e0:	8f 92       	push	r8
+  e2:	9f 92       	push	r9
+  e4:	af 92       	push	r10
+  e6:	bf 92       	push	r11
+  e8:	ef 92       	push	r14
+  ea:	ff 92       	push	r15
+  ec:	0f 93       	push	r16
+  ee:	1f 93       	push	r17
+  f0:	cf 93       	push	r28
+  f2:	df 93       	push	r29
+  f4:	02 e0       	ldi	r16, 0x02	; 2
+  f6:	11 e0       	ldi	r17, 0x01	; 1
+  f8:	0f 2e       	mov	r0, r31
+  fa:	fe e8       	ldi	r31, 0x8E	; 142
+  fc:	ef 2e       	mov	r14, r31
+  fe:	f4 e0       	ldi	r31, 0x04	; 4
+ 100:	ff 2e       	mov	r15, r31
+ 102:	f0 2d       	mov	r31, r0
+ 104:	1d c0       	rjmp	.+58     	; 0x140 <setArray+0x60>
+	for (j=0; j<LED_number; j++)
+	{
+		a = 0x1000000;
+		for (i=0; i<24; i++)
+		{
+			a=a>>1;
+ 106:	b6 94       	lsr	r11
+ 108:	a7 94       	ror	r10
+ 10a:	97 94       	ror	r9
+ 10c:	87 94       	ror	r8
+			if ((array[j]&a) == 0x00000000)
+ 10e:	f8 01       	movw	r30, r16
+ 110:	80 81       	ld	r24, Z
+ 112:	91 81       	ldd	r25, Z+1	; 0x01
+ 114:	a2 81       	ldd	r26, Z+2	; 0x02
+ 116:	b3 81       	ldd	r27, Z+3	; 0x03
+ 118:	88 21       	and	r24, r8
+ 11a:	99 21       	and	r25, r9
+ 11c:	aa 21       	and	r26, r10
+ 11e:	bb 21       	and	r27, r11
+ 120:	89 2b       	or	r24, r25
+ 122:	8a 2b       	or	r24, r26
+ 124:	8b 2b       	or	r24, r27
+ 126:	19 f4       	brne	.+6      	; 0x12e <setArray+0x4e>
+			{
+				Set0();
+ 128:	0e 94 5a 00 	call	0xb4	; 0xb4 <Set0>
+ 12c:	02 c0       	rjmp	.+4      	; 0x132 <setArray+0x52>
+			} 
+			else
+			{
+				Set1();
+ 12e:	0e 94 62 00 	call	0xc4	; 0xc4 <Set1>
+ 132:	21 97       	sbiw	r28, 0x01	; 1
+	unsigned int j,i;
+	
+	for (j=0; j<LED_number; j++)
+	{
+		a = 0x1000000;
+		for (i=0; i<24; i++)
+ 134:	41 f7       	brne	.-48     	; 0x106 <setArray+0x26>
+ 136:	0c 5f       	subi	r16, 0xFC	; 252
+ 138:	1f 4f       	sbci	r17, 0xFF	; 255
+void setArray(void) // Выставление всего массива в линию
+{
+	unsigned long int a;
+	unsigned int j,i;
+	
+	for (j=0; j<LED_number; j++)
+ 13a:	e0 16       	cp	r14, r16
+ 13c:	f1 06       	cpc	r15, r17
+ 13e:	39 f0       	breq	.+14     	; 0x14e <setArray+0x6e>
+	ClearBitLED; //После этого временной интервал немного увеличен, в связи с выполнением циклов,
+	//но диоды сигнал ловят исправно
+}
+//===================================================================================================================
+void setArray(void) // Выставление всего массива в линию
+{
+ 140:	c8 e1       	ldi	r28, 0x18	; 24
+ 142:	d0 e0       	ldi	r29, 0x00	; 0
+ 144:	81 2c       	mov	r8, r1
+ 146:	91 2c       	mov	r9, r1
+ 148:	54 01       	movw	r10, r8
+ 14a:	b3 94       	inc	r11
+ 14c:	dc cf       	rjmp	.-72     	; 0x106 <setArray+0x26>
+			{
+				Set1();
+			}
+		}
+	}
+}
+ 14e:	df 91       	pop	r29
+ 150:	cf 91       	pop	r28
+ 152:	1f 91       	pop	r17
+ 154:	0f 91       	pop	r16
+ 156:	ff 90       	pop	r15
+ 158:	ef 90       	pop	r14
+ 15a:	bf 90       	pop	r11
+ 15c:	af 90       	pop	r10
+ 15e:	9f 90       	pop	r9
+ 160:	8f 90       	pop	r8
+ 162:	08 95       	ret
+
+00000164 <main>:
+//===================================================================================================================
+
+int main(void)
+{
+	SetBit(DDRC, 0);
+ 164:	38 9a       	sbi	0x07, 0	; 7
+    while (1) 
+    {
+		if (color1 == 0)
+		{
+			color1 = 6;
+ 166:	16 e0       	ldi	r17, 0x06	; 6
+ 168:	ce e8       	ldi	r28, 0x8E	; 142
+ 16a:	d4 e0       	ldi	r29, 0x04	; 4
+				case 5:
+					array[i] = indigo;
+					color++;
+					break;
+				case 6:
+					array[i] = violet;
+ 16c:	0f 2e       	mov	r0, r31
+ 16e:	ff e0       	ldi	r31, 0x0F	; 15
+ 170:	4f 2e       	mov	r4, r31
+ 172:	51 2c       	mov	r5, r1
+ 174:	f8 e4       	ldi	r31, 0x48	; 72
+ 176:	6f 2e       	mov	r6, r31
+ 178:	71 2c       	mov	r7, r1
+ 17a:	f0 2d       	mov	r31, r0
+					color = 0;
+ 17c:	31 2c       	mov	r3, r1
+				case 4:
+					array[i] = blue;
+					color++;
+					break;
+				case 5:
+					array[i] = indigo;
+ 17e:	0f 2e       	mov	r0, r31
+ 180:	ff e0       	ldi	r31, 0x0F	; 15
+ 182:	8f 2e       	mov	r8, r31
+ 184:	91 2c       	mov	r9, r1
+ 186:	fb e4       	ldi	r31, 0x4B	; 75
+ 188:	af 2e       	mov	r10, r31
+ 18a:	b1 2c       	mov	r11, r1
+ 18c:	f0 2d       	mov	r31, r0
+				case 3:
+					array[i] = green;
+					color++;
+					break;
+				case 4:
+					array[i] = blue;
+ 18e:	c1 2c       	mov	r12, r1
+ 190:	d1 2c       	mov	r13, r1
+ 192:	76 01       	movw	r14, r12
+ 194:	ca 94       	dec	r12
+					color++;
+ 196:	05 e0       	ldi	r16, 0x05	; 5
+					array[i] = yellow;
+					color++;
+					break;
+				case 3:
+					array[i] = green;
+					color++;
+ 198:	68 94       	set
+ 19a:	22 24       	eor	r2, r2
+ 19c:	22 f8       	bld	r2, 2
+int main(void)
+{
+	SetBit(DDRC, 0);
+    while (1) 
+    {
+		if (color1 == 0)
+ 19e:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <color1>
+ 1a2:	81 11       	cpse	r24, r1
+ 1a4:	03 c0       	rjmp	.+6      	; 0x1ac <main+0x48>
+		{
+			color1 = 6;
+ 1a6:	10 93 01 01 	sts	0x0101, r17	; 0x800101 <color1>
+ 1aa:	03 c0       	rjmp	.+6      	; 0x1b2 <main+0x4e>
+		}
+		else 
+		{
+			color1--;
+ 1ac:	81 50       	subi	r24, 0x01	; 1
+ 1ae:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <color1>
+		}
+		
+		color = color1;
+ 1b2:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <color1>
+ 1b6:	a2 e0       	ldi	r26, 0x02	; 2
+ 1b8:	b1 e0       	ldi	r27, 0x01	; 1
+		
+		unsigned char i;
+		for(i = 0; i < LED_number; i++)
+		{
+			switch (color)
+ 1ba:	48 2f       	mov	r20, r24
+ 1bc:	50 e0       	ldi	r21, 0x00	; 0
+ 1be:	fa 01       	movw	r30, r20
+ 1c0:	47 30       	cpi	r20, 0x07	; 7
+ 1c2:	51 05       	cpc	r21, r1
+ 1c4:	08 f0       	brcs	.+2      	; 0x1c8 <main+0x64>
+ 1c6:	49 c0       	rjmp	.+146    	; 0x25a <main+0xf6>
+ 1c8:	ec 5c       	subi	r30, 0xCC	; 204
+ 1ca:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1cc:	0c 94 4c 01 	jmp	0x298	; 0x298 <__tablejump2__>
+			{
+				case 0:
+					array[i] = red;
+ 1d0:	20 e0       	ldi	r18, 0x00	; 0
+ 1d2:	30 e0       	ldi	r19, 0x00	; 0
+ 1d4:	4f ef       	ldi	r20, 0xFF	; 255
+ 1d6:	50 e0       	ldi	r21, 0x00	; 0
+ 1d8:	2d 93       	st	X+, r18
+ 1da:	3d 93       	st	X+, r19
+ 1dc:	4d 93       	st	X+, r20
+ 1de:	5d 93       	st	X+, r21
+		}
+		
+		color = color1;
+		
+		unsigned char i;
+		for(i = 0; i < LED_number; i++)
+ 1e0:	ca 17       	cp	r28, r26
+ 1e2:	db 07       	cpc	r29, r27
+ 1e4:	09 f4       	brne	.+2      	; 0x1e8 <main+0x84>
+ 1e6:	3f c0       	rjmp	.+126    	; 0x266 <main+0x102>
+				case 0:
+					array[i] = red;
+					color++;
+					break;
+				case 1:
+					array[i] = orange;
+ 1e8:	20 e0       	ldi	r18, 0x00	; 0
+ 1ea:	30 e4       	ldi	r19, 0x40	; 64
+ 1ec:	4f e0       	ldi	r20, 0x0F	; 15
+ 1ee:	50 e0       	ldi	r21, 0x00	; 0
+ 1f0:	2d 93       	st	X+, r18
+ 1f2:	3d 93       	st	X+, r19
+ 1f4:	4d 93       	st	X+, r20
+ 1f6:	5d 93       	st	X+, r21
+		}
+		
+		color = color1;
+		
+		unsigned char i;
+		for(i = 0; i < LED_number; i++)
+ 1f8:	ca 17       	cp	r28, r26
+ 1fa:	db 07       	cpc	r29, r27
+ 1fc:	b1 f1       	breq	.+108    	; 0x26a <main+0x106>
+				case 1:
+					array[i] = orange;
+					color++;
+					break;
+				case 2:
+					array[i] = yellow;
+ 1fe:	20 e0       	ldi	r18, 0x00	; 0
+ 200:	3f e0       	ldi	r19, 0x0F	; 15
+ 202:	4f e0       	ldi	r20, 0x0F	; 15
+ 204:	50 e0       	ldi	r21, 0x00	; 0
+ 206:	2d 93       	st	X+, r18
+ 208:	3d 93       	st	X+, r19
+ 20a:	4d 93       	st	X+, r20
+ 20c:	5d 93       	st	X+, r21
+		}
+		
+		color = color1;
+		
+		unsigned char i;
+		for(i = 0; i < LED_number; i++)
+ 20e:	ca 17       	cp	r28, r26
+ 210:	db 07       	cpc	r29, r27
+ 212:	69 f1       	breq	.+90     	; 0x26e <main+0x10a>
+				case 2:
+					array[i] = yellow;
+					color++;
+					break;
+				case 3:
+					array[i] = green;
+ 214:	20 e0       	ldi	r18, 0x00	; 0
+ 216:	3f ef       	ldi	r19, 0xFF	; 255
+ 218:	40 e0       	ldi	r20, 0x00	; 0
+ 21a:	50 e0       	ldi	r21, 0x00	; 0
+ 21c:	2d 93       	st	X+, r18
+ 21e:	3d 93       	st	X+, r19
+ 220:	4d 93       	st	X+, r20
+ 222:	5d 93       	st	X+, r21
+		}
+		
+		color = color1;
+		
+		unsigned char i;
+		for(i = 0; i < LED_number; i++)
+ 224:	ca 17       	cp	r28, r26
+ 226:	db 07       	cpc	r29, r27
+ 228:	21 f1       	breq	.+72     	; 0x272 <main+0x10e>
+				case 3:
+					array[i] = green;
+					color++;
+					break;
+				case 4:
+					array[i] = blue;
+ 22a:	cd 92       	st	X+, r12
+ 22c:	dd 92       	st	X+, r13
+ 22e:	ed 92       	st	X+, r14
+ 230:	fd 92       	st	X+, r15
+		}
+		
+		color = color1;
+		
+		unsigned char i;
+		for(i = 0; i < LED_number; i++)
+ 232:	ac 17       	cp	r26, r28
+ 234:	bd 07       	cpc	r27, r29
+ 236:	f9 f0       	breq	.+62     	; 0x276 <main+0x112>
+				case 4:
+					array[i] = blue;
+					color++;
+					break;
+				case 5:
+					array[i] = indigo;
+ 238:	8d 92       	st	X+, r8
+ 23a:	9d 92       	st	X+, r9
+ 23c:	ad 92       	st	X+, r10
+ 23e:	bd 92       	st	X+, r11
+		}
+		
+		color = color1;
+		
+		unsigned char i;
+		for(i = 0; i < LED_number; i++)
+ 240:	ca 17       	cp	r28, r26
+ 242:	db 07       	cpc	r29, r27
+ 244:	d1 f0       	breq	.+52     	; 0x27a <main+0x116>
+				case 5:
+					array[i] = indigo;
+					color++;
+					break;
+				case 6:
+					array[i] = violet;
+ 246:	4d 92       	st	X+, r4
+ 248:	5d 92       	st	X+, r5
+ 24a:	6d 92       	st	X+, r6
+ 24c:	7d 92       	st	X+, r7
+		}
+		
+		color = color1;
+		
+		unsigned char i;
+		for(i = 0; i < LED_number; i++)
+ 24e:	ca 17       	cp	r28, r26
+ 250:	db 07       	cpc	r29, r27
+ 252:	09 f0       	breq	.+2      	; 0x256 <main+0xf2>
+ 254:	bd cf       	rjmp	.-134    	; 0x1d0 <main+0x6c>
+					array[i] = indigo;
+					color++;
+					break;
+				case 6:
+					array[i] = violet;
+					color = 0;
+ 256:	83 2d       	mov	r24, r3
+ 258:	11 c0       	rjmp	.+34     	; 0x27c <main+0x118>
+ 25a:	14 96       	adiw	r26, 0x04	; 4
+		}
+		
+		color = color1;
+		
+		unsigned char i;
+		for(i = 0; i < LED_number; i++)
+ 25c:	ca 17       	cp	r28, r26
+ 25e:	db 07       	cpc	r29, r27
+ 260:	09 f0       	breq	.+2      	; 0x264 <main+0x100>
+ 262:	ad cf       	rjmp	.-166    	; 0x1be <main+0x5a>
+ 264:	0b c0       	rjmp	.+22     	; 0x27c <main+0x118>
+		{
+			switch (color)
+			{
+				case 0:
+					array[i] = red;
+					color++;
+ 266:	81 e0       	ldi	r24, 0x01	; 1
+ 268:	09 c0       	rjmp	.+18     	; 0x27c <main+0x118>
+					break;
+				case 1:
+					array[i] = orange;
+					color++;
+ 26a:	82 e0       	ldi	r24, 0x02	; 2
+ 26c:	07 c0       	rjmp	.+14     	; 0x27c <main+0x118>
+					break;
+				case 2:
+					array[i] = yellow;
+					color++;
+ 26e:	83 e0       	ldi	r24, 0x03	; 3
+ 270:	05 c0       	rjmp	.+10     	; 0x27c <main+0x118>
+					break;
+				case 3:
+					array[i] = green;
+					color++;
+ 272:	82 2d       	mov	r24, r2
+ 274:	03 c0       	rjmp	.+6      	; 0x27c <main+0x118>
+					break;
+				case 4:
+					array[i] = blue;
+					color++;
+ 276:	80 2f       	mov	r24, r16
+ 278:	01 c0       	rjmp	.+2      	; 0x27c <main+0x118>
+					break;
+				case 5:
+					array[i] = indigo;
+					color++;
+ 27a:	81 2f       	mov	r24, r17
+ 27c:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_end>
+					color = 0;
+					break;
+			}
+			 
+		}
+		setArray();
+ 280:	0e 94 70 00 	call	0xe0	; 0xe0 <setArray>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 284:	3f ef       	ldi	r19, 0xFF	; 255
+ 286:	40 e7       	ldi	r20, 0x70	; 112
+ 288:	52 e0       	ldi	r21, 0x02	; 2
+ 28a:	31 50       	subi	r19, 0x01	; 1
+ 28c:	40 40       	sbci	r20, 0x00	; 0
+ 28e:	50 40       	sbci	r21, 0x00	; 0
+ 290:	e1 f7       	brne	.-8      	; 0x28a <main+0x126>
+ 292:	00 c0       	rjmp	.+0      	; 0x294 <main+0x130>
+ 294:	00 00       	nop
+ 296:	83 cf       	rjmp	.-250    	; 0x19e <main+0x3a>
+
+00000298 <__tablejump2__>:
+ 298:	ee 0f       	add	r30, r30
+ 29a:	ff 1f       	adc	r31, r31
+ 29c:	05 90       	lpm	r0, Z+
+ 29e:	f4 91       	lpm	r31, Z
+ 2a0:	e0 2d       	mov	r30, r0
+ 2a2:	09 94       	ijmp
+
+000002a4 <_exit>:
+ 2a4:	f8 94       	cli
+
+000002a6 <__stop_program>:
+ 2a6:	ff cf       	rjmp	.-2      	; 0x2a6 <__stop_program>
