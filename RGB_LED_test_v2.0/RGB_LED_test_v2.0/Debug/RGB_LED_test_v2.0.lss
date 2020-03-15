@@ -1,0 +1,833 @@
+
+RGB_LED_test_v2.0.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000580  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000050c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000010e  00800100  00800100  00000580  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000580  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000005b0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000068  00000000  00000000  000005f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000dde  00000000  00000000  00000658  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000007e7  00000000  00000000  00001436  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000666  00000000  00000000  00001c1d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000015c  00000000  00000000  00002284  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000004f5  00000000  00000000  000023e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000a90  00000000  00000000  000028d5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000b0  00000000  00000000  00003365  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3c 00 	jmp	0x78	; 0x78 <__ctors_end>
+   4:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+   8:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+   c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  10:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  14:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  18:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  1c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  20:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  24:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  28:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  2c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  30:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  34:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  38:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  3c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  40:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  44:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  48:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  4c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  50:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  54:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  58:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  5c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  60:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  64:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  68:	98 00       	.word	0x0098	; ????
+  6a:	9d 00       	.word	0x009d	; ????
+  6c:	a8 00       	.word	0x00a8	; ????
+  6e:	b3 00       	.word	0x00b3	; ????
+  70:	bb 00       	.word	0x00bb	; ????
+  72:	c3 00       	.word	0x00c3	; ????
+  74:	cc 00       	.word	0x00cc	; ????
+  76:	da 00       	.word	0x00da	; ????
+
+00000078 <__ctors_end>:
+  78:	11 24       	eor	r1, r1
+  7a:	1f be       	out	0x3f, r1	; 63
+  7c:	cf ef       	ldi	r28, 0xFF	; 255
+  7e:	d8 e0       	ldi	r29, 0x08	; 8
+  80:	de bf       	out	0x3e, r29	; 62
+  82:	cd bf       	out	0x3d, r28	; 61
+
+00000084 <__do_copy_data>:
+  84:	11 e0       	ldi	r17, 0x01	; 1
+  86:	a0 e0       	ldi	r26, 0x00	; 0
+  88:	b1 e0       	ldi	r27, 0x01	; 1
+  8a:	ec e0       	ldi	r30, 0x0C	; 12
+  8c:	f5 e0       	ldi	r31, 0x05	; 5
+  8e:	02 c0       	rjmp	.+4      	; 0x94 <__do_copy_data+0x10>
+  90:	05 90       	lpm	r0, Z+
+  92:	0d 92       	st	X+, r0
+  94:	a0 30       	cpi	r26, 0x00	; 0
+  96:	b1 07       	cpc	r27, r17
+  98:	d9 f7       	brne	.-10     	; 0x90 <__do_copy_data+0xc>
+
+0000009a <__do_clear_bss>:
+  9a:	22 e0       	ldi	r18, 0x02	; 2
+  9c:	a0 e0       	ldi	r26, 0x00	; 0
+  9e:	b1 e0       	ldi	r27, 0x01	; 1
+  a0:	01 c0       	rjmp	.+2      	; 0xa4 <.do_clear_bss_start>
+
+000000a2 <.do_clear_bss_loop>:
+  a2:	1d 92       	st	X+, r1
+
+000000a4 <.do_clear_bss_start>:
+  a4:	ae 30       	cpi	r26, 0x0E	; 14
+  a6:	b2 07       	cpc	r27, r18
+  a8:	e1 f7       	brne	.-8      	; 0xa2 <.do_clear_bss_loop>
+  aa:	0e 94 5b 00 	call	0xb6	; 0xb6 <main>
+  ae:	0c 94 84 02 	jmp	0x508	; 0x508 <_exit>
+
+000000b2 <__bad_interrupt>:
+  b2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000b6 <main>:
+uint8_t Green_array[LED_number];
+uint8_t Blue_array[LED_number];
+uint8_t count = 0, count_state = 1;
+//===================================================================================================================
+int main(void)
+{
+  b6:	cf 93       	push	r28
+  b8:	df 93       	push	r29
+  ba:	cd b7       	in	r28, 0x3d	; 61
+  bc:	de b7       	in	r29, 0x3e	; 62
+  be:	2d 97       	sbiw	r28, 0x0d	; 13
+  c0:	0f b6       	in	r0, 0x3f	; 63
+  c2:	f8 94       	cli
+  c4:	de bf       	out	0x3e, r29	; 62
+  c6:	0f be       	out	0x3f, r0	; 63
+  c8:	cd bf       	out	0x3d, r28	; 61
+	SetBit(DDRC, 0);
+  ca:	38 9a       	sbi	0x07, 0	; 7
+
+	Single_color_fill(LED_number, black, Red_array, Green_array, Blue_array);
+  cc:	0f 2e       	mov	r0, r31
+  ce:	f4 eb       	ldi	r31, 0xB4	; 180
+  d0:	ef 2e       	mov	r14, r31
+  d2:	f1 e0       	ldi	r31, 0x01	; 1
+  d4:	ff 2e       	mov	r15, r31
+  d6:	f0 2d       	mov	r31, r0
+  d8:	0a e5       	ldi	r16, 0x5A	; 90
+  da:	11 e0       	ldi	r17, 0x01	; 1
+  dc:	20 e0       	ldi	r18, 0x00	; 0
+  de:	31 e0       	ldi	r19, 0x01	; 1
+  e0:	40 e0       	ldi	r20, 0x00	; 0
+  e2:	50 e0       	ldi	r21, 0x00	; 0
+  e4:	ba 01       	movw	r22, r20
+  e6:	8a e5       	ldi	r24, 0x5A	; 90
+  e8:	0e 94 5f 02 	call	0x4be	; 0x4be <Single_color_fill>
+
+	setArraysGRB(LED_number, Red_array, Green_array, Blue_array);		
+  ec:	97 01       	movw	r18, r14
+  ee:	a8 01       	movw	r20, r16
+  f0:	60 e0       	ldi	r22, 0x00	; 0
+  f2:	71 e0       	ldi	r23, 0x01	; 1
+  f4:	8a e5       	ldi	r24, 0x5A	; 90
+  f6:	0e 94 f9 01 	call	0x3f2	; 0x3f2 <setArraysGRB>
+				color = black;
+				break;
+			}
+			for (i = 0; i < LED_number; i++)
+			{
+				Red_array[i] = 0xFF; Blue_array[i] = 0xFF; Green_array[i] = 0xFF;
+  fa:	99 24       	eor	r9, r9
+  fc:	9a 94       	dec	r9
+		{
+			uint32_t color;
+			switch (j)
+			{
+			case 0:
+				color = red;
+  fe:	1f 82       	std	Y+7, r1	; 0x07
+ 100:	18 86       	std	Y+8, r1	; 0x08
+ 102:	2f e3       	ldi	r18, 0x3F	; 63
+ 104:	29 87       	std	Y+9, r18	; 0x09
+ 106:	1a 86       	std	Y+10, r1	; 0x0a
+	setArraysGRB(LED_number, Red_array, Green_array, Blue_array);		
+    while (1)
+    {
+		uint8_t i, j;
+
+		for (j = 0; j < 8; j++)
+ 108:	21 2c       	mov	r2, r1
+		{
+			uint32_t color;
+			switch (j)
+			{
+			case 0:
+				color = red;
+ 10a:	31 2c       	mov	r3, r1
+ 10c:	41 2c       	mov	r4, r1
+ 10e:	0f 2e       	mov	r0, r31
+ 110:	ff e3       	ldi	r31, 0x3F	; 63
+ 112:	5f 2e       	mov	r5, r31
+ 114:	f0 2d       	mov	r31, r0
+ 116:	81 2c       	mov	r8, r1
+ 118:	51 c0       	rjmp	.+162    	; 0x1bc <main+0x106>
+		uint8_t i, j;
+
+		for (j = 0; j < 8; j++)
+		{
+			uint32_t color;
+			switch (j)
+ 11a:	82 2d       	mov	r24, r2
+ 11c:	90 e0       	ldi	r25, 0x00	; 0
+ 11e:	88 30       	cpi	r24, 0x08	; 8
+ 120:	91 05       	cpc	r25, r1
+ 122:	08 f0       	brcs	.+2      	; 0x126 <main+0x70>
+ 124:	4b c0       	rjmp	.+150    	; 0x1bc <main+0x106>
+ 126:	fc 01       	movw	r30, r24
+ 128:	ec 5c       	subi	r30, 0xCC	; 204
+ 12a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 12c:	0c 94 7e 02 	jmp	0x4fc	; 0x4fc <__tablejump2__>
+			{
+			case 0:
+				color = red;
+ 130:	3f 80       	ldd	r3, Y+7	; 0x07
+ 132:	48 84       	ldd	r4, Y+8	; 0x08
+ 134:	59 84       	ldd	r5, Y+9	; 0x09
+ 136:	8a 84       	ldd	r8, Y+10	; 0x0a
+ 138:	41 c0       	rjmp	.+130    	; 0x1bc <main+0x106>
+				break;	
+			case 1:
+				color = aqua;
+ 13a:	0f 2e       	mov	r0, r31
+ 13c:	ff e7       	ldi	r31, 0x7F	; 127
+ 13e:	3f 2e       	mov	r3, r31
+ 140:	f0 2d       	mov	r31, r0
+ 142:	0f 2e       	mov	r0, r31
+ 144:	ff e7       	ldi	r31, 0x7F	; 127
+ 146:	4f 2e       	mov	r4, r31
+ 148:	f0 2d       	mov	r31, r0
+ 14a:	51 2c       	mov	r5, r1
+ 14c:	81 2c       	mov	r8, r1
+				break;
+ 14e:	36 c0       	rjmp	.+108    	; 0x1bc <main+0x106>
+			case 2:
+				color = yellow;
+ 150:	31 2c       	mov	r3, r1
+ 152:	0f 2e       	mov	r0, r31
+ 154:	ff e7       	ldi	r31, 0x7F	; 127
+ 156:	4f 2e       	mov	r4, r31
+ 158:	f0 2d       	mov	r31, r0
+ 15a:	0f 2e       	mov	r0, r31
+ 15c:	ff e7       	ldi	r31, 0x7F	; 127
+ 15e:	5f 2e       	mov	r5, r31
+ 160:	f0 2d       	mov	r31, r0
+ 162:	81 2c       	mov	r8, r1
+				break;
+ 164:	2b c0       	rjmp	.+86     	; 0x1bc <main+0x106>
+			case 3:
+				color = green;
+ 166:	31 2c       	mov	r3, r1
+ 168:	0f 2e       	mov	r0, r31
+ 16a:	ff e3       	ldi	r31, 0x3F	; 63
+ 16c:	4f 2e       	mov	r4, r31
+ 16e:	f0 2d       	mov	r31, r0
+ 170:	51 2c       	mov	r5, r1
+ 172:	81 2c       	mov	r8, r1
+				break;
+ 174:	23 c0       	rjmp	.+70     	; 0x1bc <main+0x106>
+			case 4:
+				color = blue;
+ 176:	0f 2e       	mov	r0, r31
+ 178:	ff e3       	ldi	r31, 0x3F	; 63
+ 17a:	3f 2e       	mov	r3, r31
+ 17c:	f0 2d       	mov	r31, r0
+ 17e:	41 2c       	mov	r4, r1
+ 180:	51 2c       	mov	r5, r1
+ 182:	81 2c       	mov	r8, r1
+				break;
+ 184:	1b c0       	rjmp	.+54     	; 0x1bc <main+0x106>
+			case 5:
+				color = orange;
+ 186:	31 2c       	mov	r3, r1
+ 188:	0f 2e       	mov	r0, r31
+ 18a:	f5 ea       	ldi	r31, 0xA5	; 165
+ 18c:	4f 2e       	mov	r4, r31
+ 18e:	f0 2d       	mov	r31, r0
+ 190:	55 24       	eor	r5, r5
+ 192:	5a 94       	dec	r5
+ 194:	81 2c       	mov	r8, r1
+				break;
+ 196:	12 c0       	rjmp	.+36     	; 0x1bc <main+0x106>
+			case 6:
+				color = violet;
+ 198:	0f 2e       	mov	r0, r31
+ 19a:	f7 e7       	ldi	r31, 0x77	; 119
+ 19c:	3f 2e       	mov	r3, r31
+ 19e:	f0 2d       	mov	r31, r0
+ 1a0:	0f 2e       	mov	r0, r31
+ 1a2:	f1 e4       	ldi	r31, 0x41	; 65
+ 1a4:	4f 2e       	mov	r4, r31
+ 1a6:	f0 2d       	mov	r31, r0
+ 1a8:	0f 2e       	mov	r0, r31
+ 1aa:	f7 e7       	ldi	r31, 0x77	; 119
+ 1ac:	5f 2e       	mov	r5, r31
+ 1ae:	f0 2d       	mov	r31, r0
+ 1b0:	81 2c       	mov	r8, r1
+				break;
+ 1b2:	04 c0       	rjmp	.+8      	; 0x1bc <main+0x106>
+			case 7:
+				color = black;
+ 1b4:	31 2c       	mov	r3, r1
+ 1b6:	41 2c       	mov	r4, r1
+ 1b8:	51 2c       	mov	r5, r1
+ 1ba:	81 2c       	mov	r8, r1
+ 1bc:	80 e0       	ldi	r24, 0x00	; 0
+ 1be:	91 e0       	ldi	r25, 0x01	; 1
+ 1c0:	9a 83       	std	Y+2, r25	; 0x02
+ 1c2:	89 83       	std	Y+1, r24	; 0x01
+ 1c4:	e4 eb       	ldi	r30, 0xB4	; 180
+ 1c6:	f1 e0       	ldi	r31, 0x01	; 1
+ 1c8:	fc 83       	std	Y+4, r31	; 0x04
+ 1ca:	eb 83       	std	Y+3, r30	; 0x03
+ 1cc:	8a e5       	ldi	r24, 0x5A	; 90
+ 1ce:	91 e0       	ldi	r25, 0x01	; 1
+ 1d0:	9e 83       	std	Y+6, r25	; 0x06
+ 1d2:	8d 83       	std	Y+5, r24	; 0x05
+		{
+			uint32_t color;
+			switch (j)
+			{
+			case 0:
+				color = red;
+ 1d4:	3c 01       	movw	r6, r24
+ 1d6:	5f 01       	movw	r10, r30
+ 1d8:	0f 2e       	mov	r0, r31
+ 1da:	f0 e0       	ldi	r31, 0x00	; 0
+ 1dc:	cf 2e       	mov	r12, r31
+ 1de:	f1 e0       	ldi	r31, 0x01	; 1
+ 1e0:	df 2e       	mov	r13, r31
+ 1e2:	f0 2d       	mov	r31, r0
+ 1e4:	91 e0       	ldi	r25, 0x01	; 1
+ 1e6:	1b 86       	std	Y+11, r1	; 0x0b
+ 1e8:	9c 87       	std	Y+12, r25	; 0x0c
+ 1ea:	06 c0       	rjmp	.+12     	; 0x1f8 <main+0x142>
+ 1ec:	fb 85       	ldd	r31, Y+11	; 0x0b
+ 1ee:	ff 5f       	subi	r31, 0xFF	; 255
+ 1f0:	fb 87       	std	Y+11, r31	; 0x0b
+ 1f2:	2c 85       	ldd	r18, Y+12	; 0x0c
+ 1f4:	2f 5f       	subi	r18, 0xFF	; 255
+ 1f6:	2c 87       	std	Y+12, r18	; 0x0c
+				color = black;
+				break;
+			}
+			for (i = 0; i < LED_number; i++)
+			{
+				Red_array[i] = 0xFF; Blue_array[i] = 0xFF; Green_array[i] = 0xFF;
+ 1f8:	f6 01       	movw	r30, r12
+ 1fa:	91 92       	st	Z+, r9
+ 1fc:	6f 01       	movw	r12, r30
+ 1fe:	f5 01       	movw	r30, r10
+ 200:	91 92       	st	Z+, r9
+ 202:	5f 01       	movw	r10, r30
+ 204:	f3 01       	movw	r30, r6
+ 206:	91 92       	st	Z+, r9
+ 208:	3f 01       	movw	r6, r30
+				if (i != 0)
+ 20a:	fb 85       	ldd	r31, Y+11	; 0x0b
+ 20c:	ff 23       	and	r31, r31
+ 20e:	09 f4       	brne	.+2      	; 0x212 <main+0x15c>
+ 210:	a4 c0       	rjmp	.+328    	; 0x35a <main+0x2a4>
+				{
+					Single_color_fill(i, color, Red_array, Green_array, Blue_array);
+ 212:	0f 2e       	mov	r0, r31
+ 214:	f4 eb       	ldi	r31, 0xB4	; 180
+ 216:	ef 2e       	mov	r14, r31
+ 218:	f1 e0       	ldi	r31, 0x01	; 1
+ 21a:	ff 2e       	mov	r15, r31
+ 21c:	f0 2d       	mov	r31, r0
+ 21e:	0a e5       	ldi	r16, 0x5A	; 90
+ 220:	11 e0       	ldi	r17, 0x01	; 1
+ 222:	20 e0       	ldi	r18, 0x00	; 0
+ 224:	31 e0       	ldi	r19, 0x01	; 1
+ 226:	43 2d       	mov	r20, r3
+ 228:	54 2d       	mov	r21, r4
+ 22a:	65 2d       	mov	r22, r5
+ 22c:	78 2d       	mov	r23, r8
+ 22e:	8f 2f       	mov	r24, r31
+ 230:	0e 94 5f 02 	call	0x4be	; 0x4be <Single_color_fill>
+				}
+				setArraysGRB(LED_number, Red_array, Green_array, Blue_array);
+ 234:	97 01       	movw	r18, r14
+ 236:	a8 01       	movw	r20, r16
+ 238:	60 e0       	ldi	r22, 0x00	; 0
+ 23a:	71 e0       	ldi	r23, 0x01	; 1
+ 23c:	8a e5       	ldi	r24, 0x5A	; 90
+ 23e:	0e 94 f9 01 	call	0x3f2	; 0x3f2 <setArraysGRB>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 242:	2f ef       	ldi	r18, 0xFF	; 255
+ 244:	86 e7       	ldi	r24, 0x76	; 118
+ 246:	91 e0       	ldi	r25, 0x01	; 1
+ 248:	21 50       	subi	r18, 0x01	; 1
+ 24a:	80 40       	sbci	r24, 0x00	; 0
+ 24c:	90 40       	sbci	r25, 0x00	; 0
+ 24e:	e1 f7       	brne	.-8      	; 0x248 <main+0x192>
+ 250:	00 c0       	rjmp	.+0      	; 0x252 <main+0x19c>
+ 252:	00 00       	nop
+				break;
+			case 7:
+				color = black;
+				break;
+			}
+			for (i = 0; i < LED_number; i++)
+ 254:	ec 85       	ldd	r30, Y+12	; 0x0c
+ 256:	ea 35       	cpi	r30, 0x5A	; 90
+ 258:	48 f2       	brcs	.-110    	; 0x1ec <main+0x136>
+	setArraysGRB(LED_number, Red_array, Green_array, Blue_array);		
+    while (1)
+    {
+		uint8_t i, j;
+
+		for (j = 0; j < 8; j++)
+ 25a:	23 94       	inc	r2
+ 25c:	f8 e0       	ldi	r31, 0x08	; 8
+ 25e:	2f 12       	cpse	r2, r31
+ 260:	5c cf       	rjmp	.-328    	; 0x11a <main+0x64>
+ 262:	ad 80       	ldd	r10, Y+5	; 0x05
+ 264:	be 80       	ldd	r11, Y+6	; 0x06
+ 266:	cb 80       	ldd	r12, Y+3	; 0x03
+ 268:	dc 80       	ldd	r13, Y+4	; 0x04
+ 26a:	89 81       	ldd	r24, Y+1	; 0x01
+ 26c:	9a 81       	ldd	r25, Y+2	; 0x02
+ 26e:	88 24       	eor	r8, r8
+ 270:	83 94       	inc	r8
+ 272:	9d 87       	std	Y+13, r25	; 0x0d
+ 274:	8c 87       	std	Y+12, r24	; 0x0c
+ 276:	01 c0       	rjmp	.+2      	; 0x27a <main+0x1c4>
+ 278:	83 94       	inc	r8
+				_delay_ms(30);
+			}
+		}
+		for (i = 0; i < LED_number; i++)
+		{
+			Red_array[i] = 0xFF; Blue_array[i] = 0xFF; Green_array[i] = 0xFF;
+ 27a:	ec 85       	ldd	r30, Y+12	; 0x0c
+ 27c:	fd 85       	ldd	r31, Y+13	; 0x0d
+ 27e:	91 92       	st	Z+, r9
+ 280:	fd 87       	std	Y+13, r31	; 0x0d
+ 282:	ec 87       	std	Y+12, r30	; 0x0c
+ 284:	f6 01       	movw	r30, r12
+ 286:	91 92       	st	Z+, r9
+ 288:	6f 01       	movw	r12, r30
+ 28a:	f5 01       	movw	r30, r10
+ 28c:	91 92       	st	Z+, r9
+ 28e:	5f 01       	movw	r10, r30
+			if (i != 0)
+ 290:	f1 e0       	ldi	r31, 0x01	; 1
+ 292:	8f 16       	cp	r8, r31
+ 294:	09 f4       	brne	.+2      	; 0x298 <main+0x1e2>
+ 296:	74 c0       	rjmp	.+232    	; 0x380 <main+0x2ca>
+			{
+				Single_color_fill(i-1, red, Red_array, Green_array, Blue_array);
+ 298:	0f 2e       	mov	r0, r31
+ 29a:	f4 eb       	ldi	r31, 0xB4	; 180
+ 29c:	ef 2e       	mov	r14, r31
+ 29e:	f1 e0       	ldi	r31, 0x01	; 1
+ 2a0:	ff 2e       	mov	r15, r31
+ 2a2:	f0 2d       	mov	r31, r0
+ 2a4:	0a e5       	ldi	r16, 0x5A	; 90
+ 2a6:	11 e0       	ldi	r17, 0x01	; 1
+ 2a8:	20 e0       	ldi	r18, 0x00	; 0
+ 2aa:	31 e0       	ldi	r19, 0x01	; 1
+ 2ac:	40 e0       	ldi	r20, 0x00	; 0
+ 2ae:	50 e0       	ldi	r21, 0x00	; 0
+ 2b0:	6f e3       	ldi	r22, 0x3F	; 63
+ 2b2:	70 e0       	ldi	r23, 0x00	; 0
+ 2b4:	8e ef       	ldi	r24, 0xFE	; 254
+ 2b6:	88 0d       	add	r24, r8
+ 2b8:	0e 94 5f 02 	call	0x4be	; 0x4be <Single_color_fill>
+			}
+			setArraysGRB(LED_number, Red_array, Green_array, Blue_array);
+ 2bc:	97 01       	movw	r18, r14
+ 2be:	a8 01       	movw	r20, r16
+ 2c0:	60 e0       	ldi	r22, 0x00	; 0
+ 2c2:	71 e0       	ldi	r23, 0x01	; 1
+ 2c4:	8a e5       	ldi	r24, 0x5A	; 90
+ 2c6:	0e 94 f9 01 	call	0x3f2	; 0x3f2 <setArraysGRB>
+ 2ca:	2f ef       	ldi	r18, 0xFF	; 255
+ 2cc:	86 e7       	ldi	r24, 0x76	; 118
+ 2ce:	91 e0       	ldi	r25, 0x01	; 1
+ 2d0:	21 50       	subi	r18, 0x01	; 1
+ 2d2:	80 40       	sbci	r24, 0x00	; 0
+ 2d4:	90 40       	sbci	r25, 0x00	; 0
+ 2d6:	e1 f7       	brne	.-8      	; 0x2d0 <main+0x21a>
+ 2d8:	00 c0       	rjmp	.+0      	; 0x2da <main+0x224>
+ 2da:	00 00       	nop
+				}
+				setArraysGRB(LED_number, Red_array, Green_array, Blue_array);
+				_delay_ms(30);
+			}
+		}
+		for (i = 0; i < LED_number; i++)
+ 2dc:	e9 e5       	ldi	r30, 0x59	; 89
+ 2de:	e8 15       	cp	r30, r8
+ 2e0:	58 f6       	brcc	.-106    	; 0x278 <main+0x1c2>
+ 2e2:	f1 e0       	ldi	r31, 0x01	; 1
+ 2e4:	fb 87       	std	Y+11, r31	; 0x0b
+ 2e6:	c9 80       	ldd	r12, Y+1	; 0x01
+ 2e8:	da 80       	ldd	r13, Y+2	; 0x02
+ 2ea:	ab 80       	ldd	r10, Y+3	; 0x03
+ 2ec:	bc 80       	ldd	r11, Y+4	; 0x04
+ 2ee:	6d 80       	ldd	r6, Y+5	; 0x05
+ 2f0:	7e 80       	ldd	r7, Y+6	; 0x06
+ 2f2:	03 c0       	rjmp	.+6      	; 0x2fa <main+0x244>
+ 2f4:	2b 85       	ldd	r18, Y+11	; 0x0b
+ 2f6:	2f 5f       	subi	r18, 0xFF	; 255
+ 2f8:	2b 87       	std	Y+11, r18	; 0x0b
+			setArraysGRB(LED_number, Red_array, Green_array, Blue_array);
+			_delay_ms(30);
+		}
+		for (i = 0; i < LED_number; i++)
+		{
+			Red_array[i] = 0xFF; Blue_array[i] = 0xFF; Green_array[i] = 0xFF;
+ 2fa:	f6 01       	movw	r30, r12
+ 2fc:	91 92       	st	Z+, r9
+ 2fe:	6f 01       	movw	r12, r30
+ 300:	f5 01       	movw	r30, r10
+ 302:	91 92       	st	Z+, r9
+ 304:	5f 01       	movw	r10, r30
+ 306:	f3 01       	movw	r30, r6
+ 308:	91 92       	st	Z+, r9
+ 30a:	3f 01       	movw	r6, r30
+			if (i != 0)
+ 30c:	fb 85       	ldd	r31, Y+11	; 0x0b
+ 30e:	f1 30       	cpi	r31, 0x01	; 1
+ 310:	09 f4       	brne	.+2      	; 0x314 <main+0x25e>
+ 312:	49 c0       	rjmp	.+146    	; 0x3a6 <main+0x2f0>
+			{
+				Single_color_fill(i-1, blue, Red_array, Green_array, Blue_array);
+ 314:	0f 2e       	mov	r0, r31
+ 316:	f4 eb       	ldi	r31, 0xB4	; 180
+ 318:	ef 2e       	mov	r14, r31
+ 31a:	f1 e0       	ldi	r31, 0x01	; 1
+ 31c:	ff 2e       	mov	r15, r31
+ 31e:	f0 2d       	mov	r31, r0
+ 320:	0a e5       	ldi	r16, 0x5A	; 90
+ 322:	11 e0       	ldi	r17, 0x01	; 1
+ 324:	20 e0       	ldi	r18, 0x00	; 0
+ 326:	31 e0       	ldi	r19, 0x01	; 1
+ 328:	4f e3       	ldi	r20, 0x3F	; 63
+ 32a:	50 e0       	ldi	r21, 0x00	; 0
+ 32c:	60 e0       	ldi	r22, 0x00	; 0
+ 32e:	70 e0       	ldi	r23, 0x00	; 0
+ 330:	8f 2f       	mov	r24, r31
+ 332:	82 50       	subi	r24, 0x02	; 2
+ 334:	0e 94 5f 02 	call	0x4be	; 0x4be <Single_color_fill>
+			}
+			setArraysGRB(LED_number, Red_array, Green_array, Blue_array);
+ 338:	97 01       	movw	r18, r14
+ 33a:	a8 01       	movw	r20, r16
+ 33c:	60 e0       	ldi	r22, 0x00	; 0
+ 33e:	71 e0       	ldi	r23, 0x01	; 1
+ 340:	8a e5       	ldi	r24, 0x5A	; 90
+ 342:	0e 94 f9 01 	call	0x3f2	; 0x3f2 <setArraysGRB>
+ 346:	8f e3       	ldi	r24, 0x3F	; 63
+ 348:	9c e9       	ldi	r25, 0x9C	; 156
+ 34a:	01 97       	sbiw	r24, 0x01	; 1
+ 34c:	f1 f7       	brne	.-4      	; 0x34a <main+0x294>
+ 34e:	00 c0       	rjmp	.+0      	; 0x350 <main+0x29a>
+ 350:	00 00       	nop
+				Single_color_fill(i-1, red, Red_array, Green_array, Blue_array);
+			}
+			setArraysGRB(LED_number, Red_array, Green_array, Blue_array);
+			_delay_ms(30);
+		}
+		for (i = 0; i < LED_number; i++)
+ 352:	9b 85       	ldd	r25, Y+11	; 0x0b
+ 354:	9a 35       	cpi	r25, 0x5A	; 90
+ 356:	70 f2       	brcs	.-100    	; 0x2f4 <main+0x23e>
+ 358:	d7 ce       	rjmp	.-594    	; 0x108 <main+0x52>
+				Red_array[i] = 0xFF; Blue_array[i] = 0xFF; Green_array[i] = 0xFF;
+				if (i != 0)
+				{
+					Single_color_fill(i, color, Red_array, Green_array, Blue_array);
+				}
+				setArraysGRB(LED_number, Red_array, Green_array, Blue_array);
+ 35a:	24 eb       	ldi	r18, 0xB4	; 180
+ 35c:	31 e0       	ldi	r19, 0x01	; 1
+ 35e:	4a e5       	ldi	r20, 0x5A	; 90
+ 360:	51 e0       	ldi	r21, 0x01	; 1
+ 362:	60 e0       	ldi	r22, 0x00	; 0
+ 364:	71 e0       	ldi	r23, 0x01	; 1
+ 366:	8a e5       	ldi	r24, 0x5A	; 90
+ 368:	0e 94 f9 01 	call	0x3f2	; 0x3f2 <setArraysGRB>
+ 36c:	ef ef       	ldi	r30, 0xFF	; 255
+ 36e:	f6 e7       	ldi	r31, 0x76	; 118
+ 370:	21 e0       	ldi	r18, 0x01	; 1
+ 372:	e1 50       	subi	r30, 0x01	; 1
+ 374:	f0 40       	sbci	r31, 0x00	; 0
+ 376:	20 40       	sbci	r18, 0x00	; 0
+ 378:	e1 f7       	brne	.-8      	; 0x372 <main+0x2bc>
+ 37a:	00 c0       	rjmp	.+0      	; 0x37c <main+0x2c6>
+ 37c:	00 00       	nop
+ 37e:	36 cf       	rjmp	.-404    	; 0x1ec <main+0x136>
+			Red_array[i] = 0xFF; Blue_array[i] = 0xFF; Green_array[i] = 0xFF;
+			if (i != 0)
+			{
+				Single_color_fill(i-1, red, Red_array, Green_array, Blue_array);
+			}
+			setArraysGRB(LED_number, Red_array, Green_array, Blue_array);
+ 380:	24 eb       	ldi	r18, 0xB4	; 180
+ 382:	31 e0       	ldi	r19, 0x01	; 1
+ 384:	4a e5       	ldi	r20, 0x5A	; 90
+ 386:	51 e0       	ldi	r21, 0x01	; 1
+ 388:	60 e0       	ldi	r22, 0x00	; 0
+ 38a:	71 e0       	ldi	r23, 0x01	; 1
+ 38c:	8a e5       	ldi	r24, 0x5A	; 90
+ 38e:	0e 94 f9 01 	call	0x3f2	; 0x3f2 <setArraysGRB>
+ 392:	8f ef       	ldi	r24, 0xFF	; 255
+ 394:	96 e7       	ldi	r25, 0x76	; 118
+ 396:	e1 e0       	ldi	r30, 0x01	; 1
+ 398:	81 50       	subi	r24, 0x01	; 1
+ 39a:	90 40       	sbci	r25, 0x00	; 0
+ 39c:	e0 40       	sbci	r30, 0x00	; 0
+ 39e:	e1 f7       	brne	.-8      	; 0x398 <main+0x2e2>
+ 3a0:	00 c0       	rjmp	.+0      	; 0x3a2 <main+0x2ec>
+ 3a2:	00 00       	nop
+ 3a4:	69 cf       	rjmp	.-302    	; 0x278 <main+0x1c2>
+			Red_array[i] = 0xFF; Blue_array[i] = 0xFF; Green_array[i] = 0xFF;
+			if (i != 0)
+			{
+				Single_color_fill(i-1, blue, Red_array, Green_array, Blue_array);
+			}
+			setArraysGRB(LED_number, Red_array, Green_array, Blue_array);
+ 3a6:	24 eb       	ldi	r18, 0xB4	; 180
+ 3a8:	31 e0       	ldi	r19, 0x01	; 1
+ 3aa:	4a e5       	ldi	r20, 0x5A	; 90
+ 3ac:	51 e0       	ldi	r21, 0x01	; 1
+ 3ae:	60 e0       	ldi	r22, 0x00	; 0
+ 3b0:	71 e0       	ldi	r23, 0x01	; 1
+ 3b2:	8a e5       	ldi	r24, 0x5A	; 90
+ 3b4:	0e 94 f9 01 	call	0x3f2	; 0x3f2 <setArraysGRB>
+ 3b8:	8f e3       	ldi	r24, 0x3F	; 63
+ 3ba:	9c e9       	ldi	r25, 0x9C	; 156
+ 3bc:	01 97       	sbiw	r24, 0x01	; 1
+ 3be:	f1 f7       	brne	.-4      	; 0x3bc <main+0x306>
+ 3c0:	00 c0       	rjmp	.+0      	; 0x3c2 <main+0x30c>
+ 3c2:	00 00       	nop
+ 3c4:	97 cf       	rjmp	.-210    	; 0x2f4 <main+0x23e>
+
+000003c6 <Set0>:
+																		шаг и заносим его в наш массив по метке */
+		else *(B_array + i) = B_start - (dx_B*i);						/* если наоборот, то от конечного отнимаем шаг и заносим его
+																		в наш массив по метке*/
+		//----------------------------------------------------------------
+	}
+}
+ 3c6:	40 9a       	sbi	0x08, 0	; 8
+	...
+ 3d0:	00 00       	nop
+ 3d2:	40 98       	cbi	0x08, 0	; 8
+ 3d4:	08 95       	ret
+
+000003d6 <Set1>:
+ 3d6:	40 9a       	sbi	0x08, 0	; 8
+	...
+ 3ec:	00 00       	nop
+ 3ee:	40 98       	cbi	0x08, 0	; 8
+ 3f0:	08 95       	ret
+
+000003f2 <setArraysGRB>:
+ 3f2:	af 92       	push	r10
+ 3f4:	bf 92       	push	r11
+ 3f6:	cf 92       	push	r12
+ 3f8:	df 92       	push	r13
+ 3fa:	ef 92       	push	r14
+ 3fc:	ff 92       	push	r15
+ 3fe:	0f 93       	push	r16
+ 400:	1f 93       	push	r17
+ 402:	cf 93       	push	r28
+ 404:	df 93       	push	r29
+ 406:	88 23       	and	r24, r24
+ 408:	09 f4       	brne	.+2      	; 0x40c <__LOCK_REGION_LENGTH__+0xc>
+ 40a:	4e c0       	rjmp	.+156    	; 0x4a8 <__LOCK_REGION_LENGTH__+0xa8>
+ 40c:	69 01       	movw	r12, r18
+ 40e:	e9 01       	movw	r28, r18
+ 410:	e6 2e       	mov	r14, r22
+ 412:	f7 2e       	mov	r15, r23
+ 414:	04 2f       	mov	r16, r20
+ 416:	15 2f       	mov	r17, r21
+ 418:	81 50       	subi	r24, 0x01	; 1
+ 41a:	90 e0       	ldi	r25, 0x00	; 0
+ 41c:	01 96       	adiw	r24, 0x01	; 1
+ 41e:	c8 0e       	add	r12, r24
+ 420:	d9 1e       	adc	r13, r25
+ 422:	3b c0       	rjmp	.+118    	; 0x49a <__LOCK_REGION_LENGTH__+0x9a>
+ 424:	f8 01       	movw	r30, r16
+ 426:	80 81       	ld	r24, Z
+ 428:	8a 21       	and	r24, r10
+ 42a:	19 f0       	breq	.+6      	; 0x432 <__LOCK_REGION_LENGTH__+0x32>
+ 42c:	0e 94 eb 01 	call	0x3d6	; 0x3d6 <Set1>
+ 430:	02 c0       	rjmp	.+4      	; 0x436 <__LOCK_REGION_LENGTH__+0x36>
+ 432:	0e 94 e3 01 	call	0x3c6	; 0x3c6 <Set0>
+ 436:	a6 94       	lsr	r10
+ 438:	ba 94       	dec	r11
+ 43a:	b1 10       	cpse	r11, r1
+ 43c:	f3 cf       	rjmp	.-26     	; 0x424 <__LOCK_REGION_LENGTH__+0x24>
+ 43e:	68 94       	set
+ 440:	bb 24       	eor	r11, r11
+ 442:	b3 f8       	bld	r11, 3
+ 444:	68 94       	set
+ 446:	aa 24       	eor	r10, r10
+ 448:	a7 f8       	bld	r10, 7
+ 44a:	f7 01       	movw	r30, r14
+ 44c:	80 81       	ld	r24, Z
+ 44e:	8a 21       	and	r24, r10
+ 450:	19 f0       	breq	.+6      	; 0x458 <__LOCK_REGION_LENGTH__+0x58>
+ 452:	0e 94 eb 01 	call	0x3d6	; 0x3d6 <Set1>
+ 456:	02 c0       	rjmp	.+4      	; 0x45c <__LOCK_REGION_LENGTH__+0x5c>
+ 458:	0e 94 e3 01 	call	0x3c6	; 0x3c6 <Set0>
+ 45c:	a6 94       	lsr	r10
+ 45e:	ba 94       	dec	r11
+ 460:	b1 10       	cpse	r11, r1
+ 462:	f3 cf       	rjmp	.-26     	; 0x44a <__LOCK_REGION_LENGTH__+0x4a>
+ 464:	68 94       	set
+ 466:	bb 24       	eor	r11, r11
+ 468:	b3 f8       	bld	r11, 3
+ 46a:	68 94       	set
+ 46c:	aa 24       	eor	r10, r10
+ 46e:	a7 f8       	bld	r10, 7
+ 470:	88 81       	ld	r24, Y
+ 472:	8a 21       	and	r24, r10
+ 474:	19 f0       	breq	.+6      	; 0x47c <__LOCK_REGION_LENGTH__+0x7c>
+ 476:	0e 94 eb 01 	call	0x3d6	; 0x3d6 <Set1>
+ 47a:	02 c0       	rjmp	.+4      	; 0x480 <__LOCK_REGION_LENGTH__+0x80>
+ 47c:	0e 94 e3 01 	call	0x3c6	; 0x3c6 <Set0>
+ 480:	a6 94       	lsr	r10
+ 482:	ba 94       	dec	r11
+ 484:	b1 10       	cpse	r11, r1
+ 486:	f4 cf       	rjmp	.-24     	; 0x470 <__LOCK_REGION_LENGTH__+0x70>
+ 488:	21 96       	adiw	r28, 0x01	; 1
+ 48a:	ff ef       	ldi	r31, 0xFF	; 255
+ 48c:	ef 1a       	sub	r14, r31
+ 48e:	ff 0a       	sbc	r15, r31
+ 490:	0f 5f       	subi	r16, 0xFF	; 255
+ 492:	1f 4f       	sbci	r17, 0xFF	; 255
+ 494:	cc 15       	cp	r28, r12
+ 496:	dd 05       	cpc	r29, r13
+ 498:	39 f0       	breq	.+14     	; 0x4a8 <__LOCK_REGION_LENGTH__+0xa8>
+ 49a:	68 94       	set
+ 49c:	bb 24       	eor	r11, r11
+ 49e:	b3 f8       	bld	r11, 3
+ 4a0:	68 94       	set
+ 4a2:	aa 24       	eor	r10, r10
+ 4a4:	a7 f8       	bld	r10, 7
+ 4a6:	be cf       	rjmp	.-132    	; 0x424 <__LOCK_REGION_LENGTH__+0x24>
+ 4a8:	df 91       	pop	r29
+ 4aa:	cf 91       	pop	r28
+ 4ac:	1f 91       	pop	r17
+ 4ae:	0f 91       	pop	r16
+ 4b0:	ff 90       	pop	r15
+ 4b2:	ef 90       	pop	r14
+ 4b4:	df 90       	pop	r13
+ 4b6:	cf 90       	pop	r12
+ 4b8:	bf 90       	pop	r11
+ 4ba:	af 90       	pop	r10
+ 4bc:	08 95       	ret
+
+000004be <Single_color_fill>:
+//===================================================================================================================
+void Single_color_fill(uint8_t number_of_leds, uint32_t Color, uint8_t *R_array, uint8_t *G_array, uint8_t *B_array)
+{
+ 4be:	ef 92       	push	r14
+ 4c0:	ff 92       	push	r15
+ 4c2:	0f 93       	push	r16
+ 4c4:	1f 93       	push	r17
+ 4c6:	cf 93       	push	r28
+ 4c8:	df 93       	push	r29
+	B = Color;
+	G = Color / 256;
+	R = Color / 65536;
+	
+	uint8_t i; // наша итерационная переменная для цикла for
+	for (i = 0; i < number_of_leds; i++)
+ 4ca:	88 23       	and	r24, r24
+ 4cc:	81 f0       	breq	.+32     	; 0x4ee <Single_color_fill+0x30>
+ 4ce:	f9 01       	movw	r30, r18
+ 4d0:	c0 2f       	mov	r28, r16
+ 4d2:	d1 2f       	mov	r29, r17
+ 4d4:	ae 2d       	mov	r26, r14
+ 4d6:	bf 2d       	mov	r27, r15
+ 4d8:	81 50       	subi	r24, 0x01	; 1
+ 4da:	90 e0       	ldi	r25, 0x00	; 0
+ 4dc:	01 96       	adiw	r24, 0x01	; 1
+ 4de:	28 0f       	add	r18, r24
+ 4e0:	39 1f       	adc	r19, r25
+	{
+		*(R_array + i) = R; 
+ 4e2:	61 93       	st	Z+, r22
+		*(G_array + i) = G;
+ 4e4:	59 93       	st	Y+, r21
+		*(B_array + i) = B;
+ 4e6:	4d 93       	st	X+, r20
+	B = Color;
+	G = Color / 256;
+	R = Color / 65536;
+	
+	uint8_t i; // наша итерационная переменная для цикла for
+	for (i = 0; i < number_of_leds; i++)
+ 4e8:	e2 17       	cp	r30, r18
+ 4ea:	f3 07       	cpc	r31, r19
+ 4ec:	d1 f7       	brne	.-12     	; 0x4e2 <Single_color_fill+0x24>
+	{
+		*(R_array + i) = R; 
+		*(G_array + i) = G;
+		*(B_array + i) = B;
+	}	
+}
+ 4ee:	df 91       	pop	r29
+ 4f0:	cf 91       	pop	r28
+ 4f2:	1f 91       	pop	r17
+ 4f4:	0f 91       	pop	r16
+ 4f6:	ff 90       	pop	r15
+ 4f8:	ef 90       	pop	r14
+ 4fa:	08 95       	ret
+
+000004fc <__tablejump2__>:
+ 4fc:	ee 0f       	add	r30, r30
+ 4fe:	ff 1f       	adc	r31, r31
+ 500:	05 90       	lpm	r0, Z+
+ 502:	f4 91       	lpm	r31, Z
+ 504:	e0 2d       	mov	r30, r0
+ 506:	09 94       	ijmp
+
+00000508 <_exit>:
+ 508:	f8 94       	cli
+
+0000050a <__stop_program>:
+ 50a:	ff cf       	rjmp	.-2      	; 0x50a <__stop_program>

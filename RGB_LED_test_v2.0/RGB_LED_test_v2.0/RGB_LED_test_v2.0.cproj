@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>RGP_LED_test_v1.0</AssemblyName>
-    <Name>RGP_LED_test_v1.0</Name>
-    <RootNamespace>RGP_LED_test_v1.0</RootNamespace>
+    <AssemblyName>RGB_LED_test_v2.0</AssemblyName>
+    <Name>RGB_LED_test_v2.0</Name>
+    <RootNamespace>RGB_LED_test_v2.0</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>
@@ -142,6 +142,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="USART.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WS2812b.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="WS2812b.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

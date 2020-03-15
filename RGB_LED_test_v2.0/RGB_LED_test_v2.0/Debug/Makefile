@@ -40,7 +40,8 @@ C_SRCS +=  \
 ../EEPROM.c \
 ../main.c \
 ../PWM.c \
-../USART.c
+../USART.c \
+../WS2812b.c
 
 
 PREPROCESSING_SRCS += 
@@ -53,29 +54,33 @@ OBJS +=  \
 EEPROM.o \
 main.o \
 PWM.o \
-USART.o
+USART.o \
+WS2812b.o
 
 OBJS_AS_ARGS +=  \
 EEPROM.o \
 main.o \
 PWM.o \
-USART.o
+USART.o \
+WS2812b.o
 
 C_DEPS +=  \
 EEPROM.d \
 main.d \
 PWM.d \
-USART.d
+USART.d \
+WS2812b.d
 
 C_DEPS_AS_ARGS +=  \
 EEPROM.d \
 main.d \
 PWM.d \
-USART.d
+USART.d \
+WS2812b.d
 
-OUTPUT_FILE_PATH +=RGP_LED_test_v1.0.elf
+OUTPUT_FILE_PATH +=RGB_LED_test_v2.0.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=RGP_LED_test_v1.0.elf
+OUTPUT_FILE_PATH_AS_ARGS +=RGB_LED_test_v2.0.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -115,6 +120,13 @@ LINKER_SCRIPT_DEP+=
 	@echo Finished building: $<
 	
 
+./WS2812b.o: .././WS2812b.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 
 
 
@@ -141,13 +153,13 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="RGP_LED_test_v1.0.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega328p"  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="RGB_LED_test_v2.0.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega328p"  
 	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "RGP_LED_test_v1.0.elf" "RGP_LED_test_v1.0.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "RGP_LED_test_v1.0.elf" "RGP_LED_test_v1.0.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "RGP_LED_test_v1.0.elf" > "RGP_LED_test_v1.0.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "RGP_LED_test_v1.0.elf" "RGP_LED_test_v1.0.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "RGP_LED_test_v1.0.elf"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "RGB_LED_test_v2.0.elf" "RGB_LED_test_v2.0.hex"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "RGB_LED_test_v2.0.elf" "RGB_LED_test_v2.0.eep" || exit 0
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "RGB_LED_test_v2.0.elf" > "RGB_LED_test_v2.0.lss"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "RGB_LED_test_v2.0.elf" "RGB_LED_test_v2.0.srec"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "RGB_LED_test_v2.0.elf"
 	
 	
 
@@ -159,5 +171,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "RGP_LED_test_v1.0.elf" "RGP_LED_test_v1.0.a" "RGP_LED_test_v1.0.hex" "RGP_LED_test_v1.0.lss" "RGP_LED_test_v1.0.eep" "RGP_LED_test_v1.0.map" "RGP_LED_test_v1.0.srec" "RGP_LED_test_v1.0.usersignatures"
+	rm -rf "RGB_LED_test_v2.0.elf" "RGB_LED_test_v2.0.a" "RGB_LED_test_v2.0.hex" "RGB_LED_test_v2.0.lss" "RGB_LED_test_v2.0.eep" "RGB_LED_test_v2.0.map" "RGB_LED_test_v2.0.srec" "RGB_LED_test_v2.0.usersignatures"
 	
